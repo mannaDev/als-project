@@ -43,6 +43,9 @@ app.get('/js/loginScript.js',function(req, res){
 app.get('/asset/images/frontCover.jpg',function(req, res){
     res.sendFile(__dirname+"/html/asset/images/frontCover.jpg");
 });
+app.get('/asset/images/als-logo.png',function(req, res){
+    res.sendFile(__dirname+"/html/asset/images/als-logo.png");
+});
 
 /*-------------------------------------- --- User Page Loading --- --------------------------------------*/
 app.get('/css/userPageStyle.css',function(req, res){
