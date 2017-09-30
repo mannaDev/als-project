@@ -1,0 +1,10 @@
+{
+    "userCredentials": [
+	{"name":"Kaushal","username":"kaushal","password":"manna","homeFile":"kaushal.txt"},
+	{"name":"Abhishek","username":"abhishek","password":"gourav","homeFile":"abhishek.txt"},
+	{"name":"Satyajeet","username":"satyajeet","password":"nandi","homeFile":"satyajeet.txt"},
+	{"name":"Jhaerys","username":"jon","password":"snow","homeFile":"jon.txt"},
+	{"name":"Paul","username":"paul","password":"walker","homeFile":"paul.txt"},
+	{"name":"Admin","username":"autologicsystems","password":"als@12345","homeFile":"als.txt"}
+	]
+}

@@ -1,0 +1,1 @@
+{"room1":[false,false,true,false,false],"room2":[false,false,false,true,false],"room3":[true,false,true,false,true],"room4":[false,false,false,false,false],"room5":[false,true,false,false,true]}

@@ -1,0 +1,22 @@
+{
+    "room1":
+        [
+            false, false, false, false, false
+        ],
+    "room2":
+        [
+            false, false, false, false, false
+        ],
+    "room3":
+        [
+            false, false, false, false, false
+        ],
+    "room4":
+        [
+            false, false, false, false, false
+        ],
+    "room5":
+        [
+            false, false, false, false, false
+        ]    
+}

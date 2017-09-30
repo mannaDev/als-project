@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ALS-IoT</title>
+        <link href = "css/reset.css" rel = "stylesheet" type="text/css"/>
+        <link href = "css/style.css" rel = "stylesheet" type="text/css"/>
+        <script src="js/angular.min.js"></script>
+        <script src="js/angular-animate.js"></script>
+        <script src = "js/script.js" type="application/javascript"></script>
+    </head>
+    <body ng-app="myAngularApp" ng-controller = "myController">
+        <section ng-hide="validCredential" id = "frontCover" >
+            <div>
+                <form>
+                    <input type = "text" ng-model = "username" placeholder = "Enter Username" class = "textAlignCenter frontCoverProperties" required/>
+                    <input type = "password" ng-model = "password" placeholder = "Enter Password" class = "textAlignCenter frontCoverProperties" required/>
+                    <button ng-click = "submitCredentials()" class = "textAlignCenter frontCoverProperties" > SUBMIT </button>
+                </form>
+                <p>&nbsp;{{message}}</p>
+            </div>
+        </section>
+        
+        <header>
+            <div>Welcome {{username}}</div>
+            <h1 class = "boldText">{{pageContent}}</h1>
+        </header>
+        <article>
+            <div id = "selectRoom" ng-init = "hideAdv = false">
+                <h3 class = "boldText">Select Your Room</h3>
+                <section>
+                    <ul ng-click = "hideAdv = true">
+                        <li ng-click="selectedRoom = 'Bedroom'" >Bedroom</li>
+                        <li ng-click="selectedRoom = 'Kitchen'">Kitchen</li>
+                        <li ng-click="selectedRoom = 'Bathroom'">Bathroom</li>
+                        <li ng-click="selectedRoom = 'Hallway'">Hallway</li>
+                        <li ng-click="selectedRoom = 'Dining Room'">Dining Room</li>
+                    </ul>
+                    <div id = "selectedRoom">
+                        <div id = "adv" ng-hide = "hideAdv"></div>
+                        <div id = "theRoom" ng-show = "hideAdv">
+                            <h3>{{selectedRoom}}</h3>
+                            <div class = "overflowHidden">
+                                <div class = "floatLeft"><button ng-click = "switchFunc('a')">Switch 1</button></div>
+                                <div class = "floatRight">{{room1app1}}</div>
+                            </div>
+                            <div class = "overflowHidden">
+                                <div class = "floatLeft"><button ng-click = "switchFunc('b')">Switch 2</button></div>
+                                <div class = "floatRight">{{room1app2}}</div>
+                            </div>
+                            <div class = "overflowHidden">
+                                <div class = "floatLeft"><button ng-click = "switchFunc('c')">Switch 3</button></div>
+                                <div class = "floatRight">{{room1app3}}</div>
+                            </div>
+                            <div class = "overflowHidden">
+                                <div class = "floatLeft"><button ng-click = "switchFunc('d')">Switch 4</button></div>
+                                <div class = "floatRight">{{room1app4}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </article>
+</body>

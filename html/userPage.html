@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ALS-IoT</title>
+        <link href = "css/reset.css" rel = "stylesheet" type="text/css"/>
+        <link href = "css/common.css" rel = "stylesheet" type="text/css"/>
+        <link href = "css/userPageStyle.css" rel = "stylesheet" type="text/css"/>
+        <script src="js/angular.min.js"></script>
+        
+        <script src = "js/userScript.js" type="application/javascript"></script>
+    </head>
+    <body ng-app="myAngularApp" ng-controller = "myController">
+        <header class = "overflowHidden">
+            <div class = "floatLeft">Welcome {{username}}</div>
+            <div class = "floatRight" ng-click = "logout()">Logout</div>
+            <div class = "clearLeft">
+                <h1 class = "boldText">{{pageContent}}</h1>
+            </div>
+        </header>
+        <article>
+            <div id = "selectRoom" ng-init = "hideAdv = false">
+                <h3 class = "boldText">Select Your Room</h3>
+                <section>
+                    <ul ng-click = "hideAdv = true">
+                        <li ng-click="selectedRoom('room1')" >Bedroom</li>
+                        <li ng-click="selectedRoom('room2')">Kitchen</li>
+                        <li ng-click="selectedRoom('room3')">Bathroom</li>
+                        <li ng-click="selectedRoom('room4')">Hallway</li>
+                        <li ng-click="selectedRoom('room5')">Dining Room</li>
+                    </ul>
+                    <div id = "beginner" ng-hide = "hideAdv">Select Any Room</div>
+                    <div id = "selectedRoom" ng-show = "hideAdv">
+                        <div id = "theRoom">
+                            <h3>{{selectedRoomName}}</h3>
+                            <div class = "overflowHidden" ng-repeat = "val in homeStatus[selectedRoomId] track by $index">
+                                <div class = "floatLeft"><button ng-click = "switchFunc($index)">Switch {{$index+1}}</button></div>
+                                <div class = "floatRight">{{(val)?("ON"):("OFF")}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </article>
+        <footer>
+            <p style="color:#ffeeff">All rights are reserved by Autologic Systems Pvt Ltd</p>
+        </footer>
+</body>
+</html>
