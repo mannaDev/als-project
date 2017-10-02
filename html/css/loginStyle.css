@@ -55,91 +55,37 @@
     margin: 5% 10%;
     border: none;
 }
-#frontCover p{
-    color: #EEFF22;
-}
-header h1{
-    margin: 10px 5%;
-    position: fixed;
-    width: 85%;
-    padding: 10px 2.5%;
-    background: rgba(0,2,3,0.2);
-}
-header>div{
-    margin: 10px 5%;
-    font-size: 1.2em;
-}
-#selectRoom{
-    background: url("../asset/images/bedroom.jpg");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    width: 90%;
-    margin: 100px 5% 0 5%;
-    position: relative;
-}
-#selectRoom>h3{
-    background: rgba(50,30,80,0.65);
-    padding: 25px 100px;
-}
-#selectRoom>section{
-    background: rgba(50,30,80,0.25);
-    padding: 25px;
-}
-#selectRoom ul{
-    width: 35%;
-}
-#selectRoom ul li{
-    font-size: 20px;
-    height: 25px;
-    padding: 25px 100px;
-    cursor: pointer;
-    
-}
-#selectRoom ul li:hover{
-    background: rgba(50,30,80,0.45);
-    font-weight: bold;
-}
 
-#selectedRoom{
-    background: rgba(50,30,80,0.15);
-    width: 56%;
-    padding: 15px 2%;
-    position: absolute;
-    bottom: 25px;
-    right: 25px;
-    height: 340px; /*375*/
-    border: 2px solid #445588;
-    font-weight: bold;
-}
-#adv{
-    background: url("../asset/images/adv.gif");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    height: 100%;
-    width: 100%;
-}
-#theRoom{
-    height: 100%;
-    width: 100%;
-}
-#theRoom button{
-    width: 100%;
-    /*margin: 25px 20% 15px 20%;
-    height: 25px;*/
-}
-#theRoom>div{
-    background: rgba(10,20,50,0.45);
-    margin-top: 20px;
-    padding: 10px 20px;
-    width: 45%;
-    
-}
-#theRoom>div>div.floatRight{
-    margin: 3px 20px 3px;
-    border: 1px solid #EEAAEE;
-    padding: 2px;
-    width: 50px;
-    text-align: center;
-    color: #AA77EE;
-    background: #EEFFFF;
+/****---------------------------------------- For Mobile Phone -----------------------------------******/
+@media only screen and (max-width:425px) {
+  /* For mobile phones: */
+    #frontCover aside{
+        background-color: rgba(20,25,40,0.65);
+        top: 0px;
+        left: 0px;
+        padding: 10% 5%;
+        width: 100%;
+        background-size: 90% 90%;
+    }
+    #frontCover div {
+        width: 90%;
+        margin: 50% 2.5%;
+    }
+    #frontCover {
+        background-size: 300% 100%;
+    }
+    #frontCover form>input {
+        padding: 5px 0;
+        padding-left: 5%;
+    }
+    .frontCoverProperties {
+        font-size: 1em;
+        width: 85%;
+        border-radius: 20px;
+        margin: 5% 5%;
+    }
+    #frontCover button {
+        margin: 20px 25%;
+        width: 50%;
+    }
 }
