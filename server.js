@@ -54,7 +54,6 @@ app.get('/js/userScript.js',function(req, res){
 
 /*---------------------Generalised Code for loading of the images-----------------------*/
 app.get('/asset/images/:imageName',function(req, res){
-    console.log("OUTPUT image file => "+__dirname+"/html/asset/images/"+req.params.imageName);
     res.sendFile(__dirname+"/html/asset/images/"+req.params.imageName);
 });
 
