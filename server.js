@@ -40,12 +40,6 @@ app.get('/css/loginStyle.css',function(req, res){
 app.get('/js/loginScript.js',function(req, res){
     res.sendFile(__dirname+"/html/js/loginScript.js");
 });
-app.get('/asset/images/frontCover.jpg',function(req, res){
-    res.sendFile(__dirname+"/html/asset/images/frontCover.jpg");
-});
-app.get('/asset/images/als-logo.png',function(req, res){
-    res.sendFile(__dirname+"/html/asset/images/als-logo.png");
-});
 
 /*-------------------------------------- --- User Page Loading --- --------------------------------------*/
 app.get('/css/userPageStyle.css',function(req, res){
@@ -57,14 +51,14 @@ app.get('/js/angular.min.js',function(req, res){
 app.get('/js/userScript.js',function(req, res){
     res.sendFile(__dirname+"/html/js/userScript.js");
 });
-app.get('/asset/images/bedroom.jpg',function(req, res){
-    res.sendFile(__dirname+"/html/asset/images/bedroom.jpg");
-});
-app.get('/asset/images/adv.gif',function(req, res){
-    res.sendFile(__dirname+"/html/asset/images/adv.gif");
+
+/*---------------------Generalised Code for loading of the images-----------------------*/
+app.get('/asset/images/:imageName',function(req, res){
+    console.log("OUTPUT image file => "+__dirname+"/html/asset/images/"+req.params.imageName);
+    res.sendFile(__dirname+"/html/asset/images/"+req.params.imageName);
 });
 
-
+/* ------------ Backend Code for getting the username and the selected user house details ----------------- */
 app.get('/getUsername',function(req,res){
     res.send(currUser.name);
 });
