@@ -1,10 +1,10 @@
 {
     "userCredentials": [
-	{"name":"Kaushal","username":"kaushal","password":"manna","homeFile":"kaushal.txt"},
-	{"name":"Abhishek","username":"abhishek","password":"gourav","homeFile":"abhishek.txt"},
-	{"name":"Satyajeet","username":"satyajeet","password":"nandi","homeFile":"satyajeet.txt"},
-	{"name":"Jhaerys","username":"jon","password":"snow","homeFile":"jon.txt"},
-	{"name":"Paul","username":"paul","password":"walker","homeFile":"paul.txt"},
-	{"name":"Admin","username":"autologicsystems","password":"als@12345","homeFile":"als.txt"}
+	{"name":"Kaushal","username":"kaushal","password":"manna","homeFile":"kaushal.txt","uid":"20171007044001"},
+	{"name":"Jyoti","username":"jyoti","password":"als","homeFile":"jyoti.txt","uid":"20171007044002"},
+	{"name":"Satyajeet","username":"satyajeet","password":"nandi","homeFile":"satyajeet.txt","uid":"20171007044003"},
+	{"name":"Aegon","username":"jon","password":"snow","homeFile":"jon.txt","uid":"20171007044004"},
+	{"name":"Paul","username":"paul","password":"walker","homeFile":"paul.txt","uid":"20171007044005"},
+	{"name":"Admin","username":"autologicsystems","password":"als@12345","homeFile":"als.txt","uid":"20171007044006"}
 	]
 }

@@ -12,20 +12,11 @@ myAngularApp.controller('myController',function($scope, $http){
     $http.get(hostAddress+"getUsername")
     .then(function(response) {
         $scope.username = response.data;
-/*        console.log("Angular ===>> "+$scope.username);*/
     });
     
     $http.get(hostAddress+"getHouseData")
     .then(function(response) {
         $scope.homeStatus = response.data;
-        /*
-        console.log("Angular ===>> "+JSON.stringify($scope.homeStatus));
-        
-        for(x in $scope.homeStatus) {
-            for(j=1;j<=$scope.homeStatus[x].length;j++){
-                console.log("Room"+x+" Switch"+j+" = "+$scope.homeStatus[x][j-1]);
-            }
-        }*/
     });
     
     /*------------------------------ FUNCTIONALITIES------------------------------------*/
@@ -56,7 +47,6 @@ myAngularApp.controller('myController',function($scope, $http){
     }
     
     $scope.logout = function(){
-        console.log("Logging OUT");
         window.open(hostAddress+"logout","_self");
     }
 });

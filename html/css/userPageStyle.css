@@ -90,15 +90,34 @@ header>div:nth-child(2):hover{
 }
 #theRoom>div>div.floatRight{
     margin: 3px 20px 3px;
+    width: 48px;
+    text-align: center;
+    cursor: default;
+}
+.switchedOFF{
+    color: #336699;
+    background: #EEFFFF;
     border: 1px solid #EEAAEE;
     padding: 2px;
-    width: 50px;
-    text-align: center;
-    color: #AA77EE;
-    background: #EEFFFF;
+}
+.switchedON{
+    color: #FFDDDD;
+    background: #669900;
+    border: 2px solid #EEAAEE;
+    padding: 1px;
+    box-shadow: 0px 0px 8px 3px #ccffaa;
 }
 footer{
     position: absolute;
     bottom: 5px;
     left: 5%;
+}
+
+/****---------------------------------------- For Mobile Phone -----------------------------------******/
+@media only screen and (max-width:425px) {
+  /* For mobile phones: */
+    header>div:nth-child(1){
+        /*font-size: 3.4em;
+        padding: 2% 0;*/
+    }
 }

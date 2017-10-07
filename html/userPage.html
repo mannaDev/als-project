@@ -2,12 +2,15 @@
 <html>
     <head>
         <title>ALS-IoT</title>
+        <link rel="icon" type="image/png" href="/asset/images/home-logo.jpg"/>
         <link href = "css/reset.css" rel = "stylesheet" type="text/css"/>
         <link href = "css/common.css" rel = "stylesheet" type="text/css"/>
         <link href = "css/userPageStyle.css" rel = "stylesheet" type="text/css"/>
         <script src="js/angular.min.js"></script>
         
         <script src = "js/userScript.js" type="application/javascript"></script>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body ng-app="myAngularApp" ng-controller = "myController">
         <header class = "overflowHidden">
@@ -34,7 +37,7 @@
                             <h3>{{selectedRoomName}}</h3>
                             <div class = "overflowHidden" ng-repeat = "val in homeStatus[selectedRoomId] track by $index">
                                 <div class = "floatLeft"><button ng-click = "switchFunc($index)">Switch {{$index+1}}</button></div>
-                                <div class = "floatRight">{{(val)?("ON"):("OFF")}}</div>
+                                <div class = "floatRight" ng-class="{switchedON : val, switchedOFF : !val}">{{(val)?("ON"):("OFF")}}</div>
                             </div>
                         </div>
                     </div>
