@@ -105,11 +105,28 @@ app.get('/toggle/:roomid/:switchid',function(req,res){
 app.get('/getswitch/:uniqueuser_id',function(req,res){
     //convert JSON to 2D array
     var switch_in_array;
+    var u_id = req.params.uniqueuser_id;
     var h = ["room1", "room2", "room3", "room4"];
     
     //CONVERSION CODE GOES HERE
     switch_in_array = "REQUEST WAS PROCESSED SUCCESSFULLY - "+req.params.uniqueuser_id;
-    res.send(switch_in_array);
+    
+    for(i=0;i<userCredentials.length;i++){
+        if(userCredentials[i].uid == u_id){
+            fs.readFile('./users_data/'+userCredentials[i].homeFile,function(err,data){
+                if (err)
+                    res.send("file not found error");
+                else{
+                    res.send("<p id = 'requiredKey'>"+JSON.parse(data)+"</p>");
+                }
+            });
+        }
+        else
+            return 0;
+    }
+    
+    
+//    res.send(switch_in_array);
 });
 app.get('/setswitch/:uniqueuser_id/:switchDetails',function(req,res){
     //convert JSON to 2D array
