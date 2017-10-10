@@ -104,29 +104,41 @@ app.get('/toggle/:roomid/:switchid',function(req,res){
 /* ------------------------------ ------------Switching action [server to hardware] ---------- ------------------------------ */
 app.get('/getswitch/:uniqueuser_id',function(req,res){
     //convert JSON to 2D array
-    var switch_in_array;
+    var status_record, switch_in_array;
     var u_id = req.params.uniqueuser_id;
-    var h = ["room1", "room2", "room3", "room4"];
-    
-    //CONVERSION CODE GOES HERE
-    switch_in_array = "REQUEST WAS PROCESSED SUCCESSFULLY - "+req.params.uniqueuser_id;
     
     for(i=0;i<userCredentials.length;i++){
         if(userCredentials[i].uid == u_id){
+            console.log("\n----ENTRY FOUND");
             fs.readFile('./users_data/'+userCredentials[i].homeFile,function(err,data){
                 if (err)
                     res.send("file not found error");
                 else{
-                    res.send("<p id = 'requiredKey'>"+JSON.parse(data)+"</p>");
+                    console.log("file successfully read--->"+data);
+                    //status_record = JSON.parse(data);
+                    //converting JSON to text stream
+                    var tempdata = JSON.stringify(JSON.parse(data));
+
+                    // removing unwanted characters from the text stream, so that only "true", "false" are left
+                    // coz only the sequence is required
+                    var tempdata2 = tempdata.replace(/[^a-zA-Z]/g, " ").replace(/room/g, " ").replace(/  +/g, ' ').split(" ");
+
+                    var arr=[];
+                    
+                    for(i=0,j=0;i<tempdata2.length;i++){
+                        if(tempdata2[i]=="true"||tempdata2[i]=="false"){
+                            arr[j++]=(tempdata2[i]=="true")?1:0;
+                        }
+                    }
+                    console.log(arr);
+                    res.send("<p id = 'requiredKey'>"+arr.toString()+"</p>");
                 }
             });
+            return;
         }
-        else
-            return 0;
     }
-    
-    
-//    res.send(switch_in_array);
+    res.send("404");
+    }
 });
 app.get('/setswitch/:uniqueuser_id/:switchDetails',function(req,res){
     //convert JSON to 2D array
