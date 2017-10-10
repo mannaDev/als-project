@@ -138,7 +138,7 @@ app.get('/getswitch/:uniqueuser_id',function(req,res){
         }
     }
     res.send("404");
-    }
+    
 });
 app.get('/setswitch/:uniqueuser_id/:switchDetails',function(req,res){
     //convert JSON to 2D array
