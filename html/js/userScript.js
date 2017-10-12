@@ -8,6 +8,8 @@ myAngularApp.controller('myController',function($scope, $http){
     
     /*----------Initialisation-----------*/
     $scope.pageContent = "Your Home";
+    $scope.selectedRoomName = "Bedroom";
+    $scope.selectedRoomId = "room1";
     
     $http.get(hostAddress+"getUsername")
     .then(function(response) {
