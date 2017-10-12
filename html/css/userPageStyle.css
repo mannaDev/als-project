@@ -112,6 +112,9 @@ footer{
     bottom: 5px;
     left: 5%;
 }
+#activeInMobile{
+    display: none;
+}
 
 /****---------------------------------------- For Mobile Phone -----------------------------------******/
 @media only screen and (max-width:425px) {
@@ -119,5 +122,70 @@ footer{
     header>div:nth-child(1){
         /*font-size: 3.4em;
         padding: 2% 0;*/
+    }
+    #selectRoom {
+        background: url(../asset/images/bedroom.jpg);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        width: 100%;
+        margin: 16.5% 0% 0 0%;
+    }
+    #selectRoom section>ul, #selectRoom>h3 {
+        display: none;
+    }
+    #activeInMobile{
+        display: block;
+        position: absolute;
+        width: 100%;
+    }
+    #activeInMobile nav{
+        background: rgba(20,20,35,0.85);
+        width: 80%;
+        margin-left: 10%;
+        border-radius: 20px;
+        position: absolute;
+        z-index: 1;
+    }
+    #activeInMobile aside{
+        background: rgba(20,20,35,0.85);
+        padding: 7px 6%;
+    }
+    #activeInMobile aside p{
+        font-size: 0.8em;
+        margin: 5px 0 0;
+        font-style: italic;
+        color: #FFFF00;
+    }
+    #activeInMobile nav ul li {
+        height: 20px;
+        padding: 3px 25px;
+        margin: 5px 4%;
+        border: 1px solid #FFEEFF;
+        border-radius: 15px;
+    }
+    #activeInMobile nav ul{
+        width: 100%;
+        padding: 5px 0;
+    }
+    #activeInMobile nav ul li:active{
+        background: #888899;
+        color: #EEEEFE;
+    }
+    #selectedRoom{
+        background: rgba(50,30,80,0.6);
+        width: 90%;
+        padding: 10px 5%;
+        position: sticky;
+        border: 1px solid #445588;
+        font-weight: bold;
+        margin: 30px 0 10px;
+    }
+    #theRoom>div {
+        padding: 10px 5%;
+        width: 90%;
+    }
+    #theRoom>div>div.floatRight {
+        margin: 0;
+        width: 50px;
     }
 }
