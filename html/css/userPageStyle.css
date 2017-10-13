@@ -189,6 +189,8 @@ footer{
         width: 50px;
     }
     footer{
-        font-size: 0.3em;
+        font-size: 0.4em;
+        position: relative;
+        margin-top: 10px;
     }
 }
