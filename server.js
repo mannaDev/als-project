@@ -131,7 +131,7 @@ app.get('/getswitch/:uniqueuser_id',function(req,res){
                         }
                     }
                     console.log(arr);
-                    res.send("<p id = 'requiredKey'>"+arr.toString()+"</p>");
+                    res.send(arr.toString());
                 }
             });
             return;
