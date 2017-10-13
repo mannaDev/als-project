@@ -188,4 +188,7 @@ footer{
         margin: 0;
         width: 50px;
     }
+    footer{
+        font-size: 0.3em;
+    }
 }
