@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ALS-IoT</title>
+        <link rel="icon" type="image/png" href="/asset/images/home-logo.jpg"/>
+        <link href = "css/reset.css" rel = "stylesheet" type="text/css"/>
+        <link href = "css/common.css" rel = "stylesheet" type="text/css"/>
+        <link href = "css/userPageStyle.css" rel = "stylesheet" type="text/css"/>
+        <script src="js/angular.min.js"></script>
+        
+        <script src = "js/userScript.js" type="application/javascript"></script>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body ng-app="myAngularApp" ng-controller = "myController">
+        <header class = "overflowHidden">
+            <div class = "floatLeft">Welcome {{username}}</div>
+            <div class = "floatRight" ng-click = "logout()">Logout</div>
+            <div class = "clearBoth overflowHidden">
+                <div class = "floatLeft">
+                    <h1 class = "boldText">{{pageContent}}</h1>
+                </div>
+                <div class="floatRight autoManualSwitchSection">
+                    <span class="floatLeft autoManualClass"><span ng-if="ifDesktop()">AUTO</span><span ng-if="!ifDesktop()">A</span></span>
+                    <label class="switch">
+                        <input type="checkbox" ng-click="autoManualMode()" ng-model="autoManualFlag">   <!-- for making it checked by default => <input type="checkbox" checked>   -->
+                        <span class="slider round"></span>
+                    </label>
+                    <span class="floatRight autoManualClass"><span ng-if="ifDesktop()">MANUAL</span><span ng-if="!ifDesktop()">M</span></span>
+                </div>
+            </div>
+        </header>
+        <article>
+            <div id = "selectRoom" ng-init = "hideAdv = false">
+                <h3 class = "boldText">Select Your Room</h3>
+                <div id = "activeInMobile">
+                    <aside ng-click="shownav = !shownav">
+                        <h3 ng-init="shownav=false">{{selectedRoomName}}</h3>
+                        <p>Tap to change the room</p>
+                    </aside>
+                    <nav ng-show="shownav">
+                        <ul ng-click = "shownav = !shownav">
+                            <li ng-click="selectedRoom('room1')">Bedroom</li>
+                            <li ng-click="selectedRoom('room2')">Kitchen</li>
+                            <li ng-click="selectedRoom('room3')">Bathroom</li>
+                            <li ng-click="selectedRoom('room4')">Hallway</li>
+                            <li ng-click="selectedRoom('room5')">Dining Room</li>
+                        </ul>
+                    </nav>
+                </div>
+                <section class="clearBoth">
+                    <ul ng-click = "hideAdv = true">
+                        <li ng-click="selectedRoom('room1')" >Bedroom</li>
+                        <li ng-click="selectedRoom('room2')">Kitchen</li>
+                        <li ng-click="selectedRoom('room3')">Bathroom</li>
+                        <li ng-click="selectedRoom('room4')">Hallway</li>
+                        <li ng-click="selectedRoom('room5')">Dining Room</li>
+                    </ul>
+                    <!--div id = "beginner" ng-hide = "hideAdv">Select Any Room</div-->
+                    <div id = "selectedRoom">
+                        <div id = "theRoom">
+                            <h3>{{selectedRoomName}}</h3>
+                            <div class = "overflowHidden" ng-repeat = "val in homeStatus[selectedRoomId] track by $index">
+                                <div class = "floatLeft"><button ng-click = "autoManualFlag||switchFunc($index)">Switch {{$index+1}}</button></div>
+                                <div class = "floatRight" ng-class="{switchedON : val, switchedOFF : !val}">{{(val)?("ON"):("OFF")}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </article>
+        <footer>
+            <p class = "copyright">Copyright &copy; 2017 by <span class="boldText">Auto Logic Systems</span></p>
+            <p class = "copyright">All rights reserved.</p>
+        </footer>
+</body>
+</html>
