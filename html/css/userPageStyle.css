@@ -1,9 +1,11 @@
-header h1{
-    margin: 25px 0;
-    position: fixed;
+header>div:nth-child(3){
+    margin: 1% 5%;
     width: 85%;
     padding: 10px 2.5%;
     background: rgba(0,2,3,0.2);
+}
+.autoManualClass{
+    margin: 8px 15px;
 }
 header>div{
     margin: 10px 5%;
@@ -21,13 +23,20 @@ header>div:nth-child(2):hover{
     background-size: 100% 100%;
     background-repeat: no-repeat;
     width: 90%;
-    margin: 100px 5% 0 5%;
+    margin: 0px 5%;
     position: relative;
 }
+
 #selectRoom>h3{
     background: rgba(50,30,80,0.65);
+    overflow: hidden;
     padding: 25px 100px;
 }
+
+#selectRoom>div>div:nth-child(2)>span{
+    margin: 10px 15px;
+}
+
 #selectRoom>section{
     background: rgba(50,30,80,0.25);
     padding: 25px;
@@ -116,19 +125,75 @@ footer{
     display: none;
 }
 
+/*  --------------------------------  toggle button CSS       -----------------------------*/
+
+        .switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+/* ------------------====== end of toggle button css ======------------------------------ */
+
 /****---------------------------------------- For Mobile Phone -----------------------------------******/
 @media only screen and (max-width:425px) {
   /* For mobile phones: */
-    header>div:nth-child(1){
-        /*font-size: 3.4em;
-        padding: 2% 0;*/
+    header>div:nth-child(3) {
+        padding: 10px 2%;
     }
     #selectRoom {
-        background: url(../asset/images/bedroom.jpg);
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-        width: 100%;
-        margin: 16.5% 0% 0 0%;
+        background-size: 275% 100%;
+        background-position: 50%;
+        margin: 5px 5%;
     }
     #selectRoom section>ul, #selectRoom>h3 {
         display: none;
@@ -188,9 +253,28 @@ footer{
         margin: 0;
         width: 50px;
     }
-    footer{
-        font-size: 0.4em;
-        position: relative;
-        margin-top: 10px;
+    .autoManualClass {
+        margin: 4px;
     }
+    /*---------------------------------TOGGLE BUTTON CSS----------------------------------------*/
+    .switch{
+        width: 30px;
+        height: 21px;
+    }
+    input:checked + .slider:before {
+        -webkit-transform: translateX(11px);
+        -ms-transform: translateX(11px);
+        transform: translateX(11px);
+    }
+    .slider:before {
+        height: 15px;
+        width: 15px;
+        left: 2px;
+        bottom: 3px;
+    }
+    .autoManualSwitchSection{
+        font-size: 0.7em;
+        margin-top: 2%;
+    }
+    /*=========-----------------------end of toggle button css ------------------*/
 }

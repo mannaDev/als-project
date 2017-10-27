@@ -4,13 +4,13 @@ var roomNames = {"room1":"Bedroom", "room2":"Kitchen", "room3":"Bath Room", "roo
 var hostAddress = "https://nanna.website/";
 
 var myAngularApp = angular.module('myAngularApp',[]);
-myAngularApp.controller('myController',function($scope, $http){
+myAngularApp.controller('myController',function($scope, $http, $window,	$interval){
     
     /*----------Initialisation-----------*/
     $scope.pageContent = "Your Home";
     $scope.selectedRoomName = "Bedroom";
     $scope.selectedRoomId = "room1";
-    
+	
     $http.get(hostAddress+"getUsername")
     .then(function(response) {
         $scope.username = response.data;
@@ -22,7 +22,27 @@ myAngularApp.controller('myController',function($scope, $http){
     });
     
     /*------------------------------ FUNCTIONALITIES------------------------------------*/
-    
+    $interval(function(){                        //autorefreshing the page data
+		$http.get(hostAddress+"getHouseData")
+		.then(function(response) {
+			$scope.homeStatus = response.data;
+		});
+	},500);
+	
+    $scope.ifDesktop = function(){
+        if($window.innerWidth>425)
+            return true;
+        else
+            return false;
+    }
+	
+    /*$scope.ifMobile = function(){
+        if($window.innerWidth<=425)
+            return true;
+        else
+            return false;
+    }*/
+	
     $scope.selectedRoom = function(room){
         $scope.selectedRoomId = room;
         $scope.selectedRoomName = roomNames[room];
@@ -30,10 +50,8 @@ myAngularApp.controller('myController',function($scope, $http){
     
     $scope.switchFunc = function(switchID){
         console.log($scope.selectedRoomId+" switch"+switchID);
-        //toggling the switch
-        toggleSwitch($scope.selectedRoomId,switchID);
-        $scope.homeStatus[$scope.selectedRoomId][switchID] = !$scope.homeStatus[$scope.selectedRoomId][switchID];
-        //sending the toggled data to the server
+        //toggling the switch & sending the toggled data to the server
+        $scope.homeStatus[$scope.selectedRoomId][switchID] = toggleSwitch($scope.selectedRoomId,switchID);
     }
     
     function toggleSwitch(selectedRoom, selectedSwitch){
@@ -51,4 +69,10 @@ myAngularApp.controller('myController',function($scope, $http){
     $scope.logout = function(){
         window.open(hostAddress+"logout","_self");
     }
+	
+	$scope.autoManualMode = function(){
+		$http.get(hostAddress+"reset/"+$scope.autoManualFlag).then(function(response) {
+                console.log(response.data);
+            });
+    }	
 });

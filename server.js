@@ -86,6 +86,19 @@ app.get('/logout', urlencodedParser, function(req, res){
     res.sendFile(__dirname+"/html/login.html");
 });
 
+/* ----------------------------------- AUTO-MANUAL SWITCHING ----------------------------------- */
+app.get('/reset/:resetStatus',function(req,res){
+    if(req.params.resetStatus == "true"){
+		currUserHouseData = {"room1":[false,false,false,false,false],"room2":[false,false,false,false,false],"room3":[false,false,false,false,false],"room4":[false,false,false,false,false],"room5":[false,false,false,false,false]};
+		fs.writeFile('./users_data/'+currUser.homeFile, JSON.stringify(currUserHouseData),  function(err) {
+			if (err) {
+				return console.error(err);
+			}
+			res.send("RESET COMPLETE - MANUAL MODE ENABLED");
+		});
+	}
+});
+
 /*---------------------------------Switching action [UI to server] Code--------------------*/
 app.get('/toggle/:roomid/:switchid',function(req,res){
     currUserHouseData[req.params.roomid][req.params.switchid] = !currUserHouseData[req.params.roomid][req.params.switchid];
@@ -115,7 +128,7 @@ app.get('/getswitch/:uniqueuser_id',function(req,res){
                     res.send("file not found error");
                 else{
                     console.log("file successfully read--->"+data);
-                    //status_record = JSON.parse(data);
+                    
                     //converting JSON to text stream
                     var tempdata = JSON.stringify(JSON.parse(data));
 
@@ -131,15 +144,15 @@ app.get('/getswitch/:uniqueuser_id',function(req,res){
                         }
                     }
                     console.log(arr);
-                    res.send(arr.toString());
+                    res.send("<p id = 'requiredKey'>"+arr.toString()+"</p>");
                 }
             });
             return;
         }
     }
     res.send("404");
-    
 });
+/* ---------- Setting the switch from the hardware end [currently out of scope] ----------- *\
 app.get('/setswitch/:uniqueuser_id/:switchDetails',function(req,res){
     //convert JSON to 2D array
     var switch_in_array;
@@ -157,7 +170,7 @@ app.get('/setswitch/:uniqueuser_id/:switchDetails',function(req,res){
 **/
 
 var server = app.listen(8080, function () {  
-  var host = server.address().address  
-  var port = server.address().port  
-  console.log("Example app listening at http://%s:%s", host, port)  
+  var host = server.address().address
+  var port = server.address().port
+  console.log("ALS-IoT SERVER IS UP AND LISTENING AT https://%s:%s", host, port);
 });

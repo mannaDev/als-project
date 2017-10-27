@@ -3,7 +3,7 @@
 	{"name":"Kaushal","username":"kaushal","password":"manna","homeFile":"kaushal.txt","uid":"20171007044001"},
 	{"name":"Jyoti","username":"jyoti","password":"als","homeFile":"jyoti.txt","uid":"20171007044002"},
 	{"name":"Satyajeet","username":"satyajeet","password":"nandi","homeFile":"satyajeet.txt","uid":"20171007044003"},
-	{"name":"Shiva","username":"sp","password":"123456","homeFile":"jon.txt","uid":"20171007044004"},
+	{"name":"Aegon","username":"jon","password":"snow","homeFile":"jon.txt","uid":"20171007044004"},
 	{"name":"Paul","username":"paul","password":"walker","homeFile":"paul.txt","uid":"20171007044005"},
 	{"name":"Admin","username":"autologicsystems","password":"als@12345","homeFile":"als.txt","uid":"20171007044006"}
 	]
