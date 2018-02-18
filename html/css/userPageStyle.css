@@ -120,6 +120,11 @@ footer{
     position: absolute;
     bottom: 5px;
     left: 5%;
+	width: 90%;
+}
+footer>div:nth-child(2)>p:nth-child(2){
+	font-size: 2em;
+	font-family: calculatorFont;
 }
 #activeInMobile{
     display: none;
@@ -183,6 +188,60 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 /* ------------------====== end of toggle button css ======------------------------------ */
+
+.settingsTab{
+	position: fixed;
+	right: -440px;
+	top: 0;
+	transition-property: right;
+    transition-duration: 1.5s;
+}
+.showSettingsButton{
+	background: url("../asset/images/settings.jpeg");
+	background-repeat: no-repeat;
+	background-size: 130% 130%;
+    width: 50px;
+    height: 46px;
+    background-position: -6px -8px;
+	margin-top: 45px;
+}
+#settingsTab>section:nth-child(2){
+	width: 340px;
+	padding: 30px 50px;
+	background: rgba(50,30,80,0.5);
+}
+#settingsTab>section>form>input{
+	border: 1px solid #5544AA;
+    margin: 15px 0;
+    font-size: 1.5em;
+    padding: 5px 20px;
+}
+#settingsTab>section>form>input:nth-child(3){
+	margin: 0;
+}
+#settingsTab>section>form>button{
+	width: 50%;
+    height: 2em;
+    font-weight: bold;
+    margin: 20px 25% 0;
+    background: rgb(150,150,220);
+    border: none;
+    cursor: pointer;
+    color: #eeffee;
+}
+#showHidePasswordCheckbox+label{
+	padding-left: 10px;
+}
+.showSettingsTabWindow{
+	right: 0px;
+}
+#SettingsTab:hover{
+	box-shadow: 0px 0px 20px 5px #55AAAA;
+	background: url('../asset/images/settings.gif');
+	background-size: 160% 140%;
+    background-position: -15px -9px;
+    background-repeat: no-repeat;
+}
 
 /****---------------------------------------- For Mobile Phone -----------------------------------******/
 @media only screen and (max-width:425px) {

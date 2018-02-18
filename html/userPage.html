@@ -7,9 +7,8 @@
         <link href = "css/common.css" rel = "stylesheet" type="text/css"/>
         <link href = "css/userPageStyle.css" rel = "stylesheet" type="text/css"/>
         <script src="js/angular.min.js"></script>
-        
-        <script src = "js/userScript.js" type="application/javascript"></script>
-        
+	<script src="js/jQueryLite.js"></script>
+	<script src = "js/userScript.js" type="application/javascript"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body ng-app="myAngularApp" ng-controller = "myController">
@@ -69,9 +68,29 @@
                 </section>
             </div>
         </article>
+		
+		<aside id="settingsTab" class="settingsTab"> <!-- THE WIFI SETTINGS PAGE -->
+			<div id="SettingsTab" class="showSettingsButton cursorPointer floatLeft" ng-click="enableSettings();$event.stopPropagation()"></div>
+			<section class="floatRight" ng-click="$event.stopPropagation()">
+				<form>
+					<input type="text" placeholder="Enter New SSID" value={{ssid}} name="wifi_SSID" ng-model="wifi_SSID"/>
+					<input type="{{wifiInputPasswordType}}" placeholder="Enter New Password" value={{ssid_pwd}} name="wifi_password" ng-model="wifi_password"/>
+					<input type="checkbox" ng-click="hideShowPassword()" id="showHidePasswordCheckbox"/><label for="showHidePasswordCheckbox">Show Password</label>
+					<br/>
+					<button ng-click="submitWifiSettings()">SAVE</button>
+				</form>
+			</section>
+		</aside>
+		
         <footer>
-            <p class = "copyright">Copyright &copy; 2017 by <span class="boldText">Auto Logic Systems</span></p>
-            <p class = "copyright">All rights reserved.</p>
+            <div class="floatLeft">
+				<p class = "copyright">Copyright &copy; 2017 by <span class="boldText">Auto Logic Systems</span></p>
+            	<p class = "copyright">All rights reserved.</p>
+			</div>
+			<div class="floatRight">
+				<p style="font-size: 1em;">{{date | date:'dd-MMM-yyyy'}}</p>
+				<p class="floatLeft">{{ clock | date:'HH:mm:ss a'}}</p>
+			</div>
         </footer>
 </body>
 </html>

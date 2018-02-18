@@ -41,3 +41,10 @@ h3{
 .copyright{
     color: #EEDDFF;
 }
+.cursorPointer{
+	cursor: pointer;
+}
+@font-face {
+    font-family: calculatorFont;
+    src: url(../asset/fonts/digital-7.ttf);
+}
